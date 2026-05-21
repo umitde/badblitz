@@ -1,88 +1,59 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BADBLITZ | Taktiksel Vuruş Sistemleri</title>
+    <title>BADBLITZ | Defense Systems</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-        
-        body {
-            font-family: 'Share Tech Mono', monospace;
-            background-color: #030303;
-            color: #d1d5db;
-            overflow: hidden;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: #e5e5e5; 
         }
-        
-        /* Korkutucu Glitch Efekti */
-        .glitch {
-            animation: glitch 2s linear infinite;
-        }
-        @keyframes glitch {
-            2%, 64% { transform: translate(2px,0) skew(0deg); text-shadow: 2px 0 red, -2px 0 blue; }
-            4%, 60% { transform: translate(-2px,0) skew(0deg); text-shadow: none; }
-            62% { transform: translate(0,0) skew(5deg); }
-        }
-
-        /* Radar Tarama Çizgisi */
-        .scanline {
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(185, 28, 28, 0.15) 50%, rgba(0,0,0,0) 100%);
-            position: absolute;
-            bottom: 100%;
-            animation: scan 4s linear infinite;
-            pointer-events: none;
-            z-index: 50;
-        }
-        @keyframes scan {
-            0% { bottom: 100%; }
-            100% { bottom: -100px; }
+        /* Taktiksel Mühendislik Izgarası */
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
     </style>
 </head>
-<body class="h-screen w-screen flex flex-col items-center justify-center relative select-none">
+<body class="min-h-screen flex flex-col grid-bg selection:bg-gray-700 selection:text-white">
     
-    <div class="scanline"></div>
+    <header class="w-full p-6 md:p-10 flex justify-between items-center border-b border-white/10">
+        <div class="text-xl md:text-2xl font-extrabold tracking-tighter text-white">BADBLITZ</div>
+        <div class="text-xs font-medium tracking-[0.2em] text-gray-500 uppercase">Defense Systems</div>
+    </header>
 
-    <!-- Arka Plan Hedefleme Lazerleri -->
-    <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-        <div class="w-72 h-72 border-2 border-red-700 rounded-full flex items-center justify-center">
-            <div class="w-full h-px bg-red-700 absolute"></div>
-            <div class="h-full w-px bg-red-700 absolute"></div>
-        </div>
-    </div>
-
-    <!-- Merkez İçerik -->
-    <div class="z-10 text-center px-6 w-full max-w-lg">
-        <h1 class="text-5xl md:text-7xl font-bold text-red-700 tracking-[0.2em] glitch uppercase mb-2">
-            BADBLITZ
-        </h1>
-        <p class="text-xs md:text-sm tracking-[0.3em] text-gray-500 uppercase mb-12">
-            Otonom İmha Sistemleri
+    <main class="flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full">
+        <p class="text-gray-500 text-xs md:text-sm font-medium tracking-[0.3em] uppercase mb-6">
+            Unmanned Combat Aerial Vehicles (UCAV)
         </p>
         
-        <div class="border border-red-900 bg-black/50 p-6 md:p-8 backdrop-blur-sm relative">
-            <!-- Köşe Süsleri -->
-            <div class="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-red-600"></div>
-            <div class="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-red-600"></div>
-            <div class="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-red-600"></div>
-            <div class="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-red-600"></div>
-
-            <p class="text-[10px] text-red-500 mb-4 animate-pulse">SİSTEM AKTİF // HEDEF ARANIYOR...</p>
-            <h2 class="text-lg md:text-xl text-white mb-4 leading-tight">
-                GÖRÜNMEZ GÜÇ.<br>ÖLÜMCÜL HASSASİYET.
-            </h2>
-            <p class="text-xs text-gray-500 text-center mx-auto">
-                Yeni nesil asimetrik savaş teknolojisi.
-            </p>
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight mb-8">
+            LETHAL.<br>
+            AUTONOMOUS.<br>
+            <span class="text-gray-700">PRECISION.</span>
+        </h1>
+        
+        <p class="text-gray-400 max-w-xl text-sm md:text-base leading-relaxed mb-12">
+            Engineering next-generation combat drones for asymmetric warfare. Built for absolute tactical superiority and decisive strikes on the modern battlefield.
+        </p>
+        
+        <div>
+            <a href="mailto:contact@badblitz.com" class="inline-block bg-white text-black px-10 py-4 text-xs font-bold uppercase tracking-[0.1em] hover:bg-gray-300 transition-colors">
+                Request Specifications
+            </a>
         </div>
+    </main>
 
-        <button class="mt-16 border border-red-800 text-red-600 hover:bg-red-800 hover:text-black transition-all duration-300 px-8 py-3 text-xs tracking-widest uppercase focus:outline-none">
-            Protokolü Başlat
-        </button>
-    </div>
+    <footer class="w-full p-6 md:p-10 text-[10px] uppercase tracking-widest text-gray-600 flex flex-col sm:flex-row justify-between border-t border-white/10 gap-2">
+        <div>&copy; 2026 BADBLITZ Defense. All rights reserved.</div>
+        <div>Classified // Global Operations</div>
+    </footer>
 
 </body>
 </html>
